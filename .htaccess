@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond $1 !^(index\.php|img|robots\.txt|js|css)
+	RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+	# If mod_rewrite is not installed then all errors go to
+	# index.php and everything works as normal
+	
+	ErrorDocument 404 /index.php
+</IfModule>
